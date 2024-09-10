@@ -1,16 +1,16 @@
 package com.rail
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin1"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+val name: String = "Название мероприятия" //Неизменяемое
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+const val date = "01.01.2025"  //Неизменяемое
+
+val place: String="red square" //Неизменяемое
+
+lateinit var budget : String
+
+val lazyValue:String by lazy {
+    ""
 }
+
+val information : String = "Контактная информация"
+
