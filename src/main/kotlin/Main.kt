@@ -14,3 +14,6 @@ val lazyValue:String by lazy {
 
 val information : String = "Контактная информация"
 
+
+
+
