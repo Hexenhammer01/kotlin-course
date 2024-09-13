@@ -1,4 +1,4 @@
-package com.rail
+package com.rail.com.rail.kotlincourse
 
 val name: String = "Название мероприятия" //Неизменяемое
 
