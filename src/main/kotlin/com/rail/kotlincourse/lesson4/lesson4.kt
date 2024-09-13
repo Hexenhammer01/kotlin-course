@@ -24,3 +24,11 @@ val keyValues : Map<String, String> = mapOf(
     "Ключ 2" to "значение 2"
 )
 val anything : Any = false //что угодно можно задать
+
+fun printMessage (message: String) {
+    println(message)
+}
+
+fun fail (message: String) : Nothing {
+    throw IllegalArgumentException(message)
+}
