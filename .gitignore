@@ -44,4 +44,9 @@ bin/
 ### Mac OS ###
 .DS_Store
 /.idea/
-/.idea/shelf/
+/.idea/shelf/gradle.xml
+/.idea/shelf/kotlinc.xml
+/.idea/shelf/misc.xml
+/.idea/shelf/uiDesigner.xml
+/.idea/shelf/vcs.xml
+/.idea/shelf/workspace.xml
