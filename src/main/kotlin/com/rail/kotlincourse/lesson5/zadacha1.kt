@@ -60,12 +60,12 @@ fun printbox(box : Any?){
 //}
 
 fun main(){
-    printDelivery(price = 100)
+    printDelivery(price = 3456)
     printDelivery(price = null)
 }
 
 fun printDelivery(price : Int?) {
     if (price != null) {
-        println(price * 0.05)
+        println(price * 0.005)
     } else println("50$")
 }

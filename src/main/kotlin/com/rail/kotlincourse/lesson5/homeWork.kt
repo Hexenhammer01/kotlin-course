@@ -36,7 +36,7 @@ fun main(){
 
 fun printDelivery(price : Int?) {
     if (price != null) {
-        println(price * 0.05)
+        println(price * 0.005)
     } else println("50$")
 }
 
