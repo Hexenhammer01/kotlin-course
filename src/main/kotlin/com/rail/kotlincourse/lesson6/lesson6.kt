@@ -64,28 +64,3 @@ package com.rail.kotlincourse.lesson6
 //    }
 //}
 
-
-fun main(){
-    println(getSeason(season = 345))
-}
-fun getSeason (season:Int):String {
-    return when (season) {
-        in 3 until 6 -> "spring"
-        in 6 until  9 -> "summer"
-        in 9 until 12 -> "autum"
-        12 -> "winter"
-        in 1 until 3 ->"winter"
-        else->"Incorrect"
-    }
-}
-
-fun humanYears(dogYear: Int):Double{
-    return if (dogYear in 1..2) {
-        humanYears(dogYear * 10.5)
-    }else if (dogYear in 3..10 ) {
-        humanYears( * 10.5 + (dogYear -2)*4)
-    }else {
-        "incorrect"
-    }
-
-}
