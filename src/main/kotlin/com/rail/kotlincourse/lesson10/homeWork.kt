@@ -1,8 +1,5 @@
 package com.rail.kotlincourse.lesson10
 
-import com.rail.kotlincourse.lesson4.printMessage
-import java.io.StringReader
-import javax.swing.text.MaskFormatter
 
 fun main() {
 //    Работа с массивами Array
