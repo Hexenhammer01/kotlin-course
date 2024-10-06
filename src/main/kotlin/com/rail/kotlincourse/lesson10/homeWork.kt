@@ -174,7 +174,13 @@ fun main() {
         }
         println(rSet)
     }
-
+//11
+    val tSet = setOf("a","s","d")
+    val mList = mutableListOf<String>()
+    for (m in tSet){
+        mList.add(m)
+    }
+    println(mList)
 
 }
 
