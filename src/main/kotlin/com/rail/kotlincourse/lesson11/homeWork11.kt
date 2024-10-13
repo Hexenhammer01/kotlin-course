@@ -67,19 +67,71 @@ fun main() {
     println(slov2)
 
     val sloj = mutableMapOf(
-        "q" to listOf(1,2,3),
-        "w" to listOf(4,5,6)
+        "q" to listOf(1, 2, 3),
+        "w" to listOf(4, 5, 6)
 
     )
-    sloj["e"]= listOf(7,8,9)
+    sloj["e"] = listOf(7, 8, 9)
     println(sloj)
 
     val ksch = mutableMapOf(
-        9 to mutableSetOf("q","w","e"),
-        8 to mutableSetOf("a","s","d")
+        9 to mutableSetOf("q", "w", "e"),
+        8 to mutableSetOf("a", "s", "d")
     )
     ksch[8]?.add("v")
     println(ksch)
+
+    val map5: Map<Pair<Int, Int>, Int> = mapOf(
+        Pair(1, 2) to 1,
+        Pair(3, 4) to 2,
+        Pair(5, 6) to 3,
+        Pair(7, 8) to 4,
+        Pair(9, 10) to 5,
+        Pair(11, 12) to 6
+    )
+
+    for ((key, value) in map5) {
+        val (a, b) = key
+        if (a == 5 || b == 5) {
+            println(key)
+        }
+    }
+
+    val books: MutableMap<String, MutableSet<String>> = mutableMapOf(
+        "Мураками" to mutableSetOf<String>("Призрачный лес", "Охота на овец", "Кафка на пяже"),
+        "Хемингуэй" to mutableSetOf<String>("Старик и море", "Райский сад", "Прощай, оружие")
+    )
+
+    println(books)
+
+    val plants: Map<String, List<String>> = mapOf(
+        "Фрукты" to listOf<String>("Яблоня", "Груша", "Айва"),
+        "Овощи" to listOf<String>("Баклажан", "Томат", "Картофель")
+    )
+
+    println(plants)
+
+    val teams: MutableMap<String, MutableList<String>> = mutableMapOf(
+        "TeamSpiritGo" to mutableListOf<String>("Donk", "sh1ro", "chopper", "magixx", "zont1x"),
+        "Vitality" to mutableListOf<String>("mezii", "flameZ", "Spinx", "ZywOo", "apEX")
+    )
+
+    println(teams)
+
+    val places: Map<String, Map<String, List<String>>> = mapOf(
+        "Абхазия" to mapOf(
+            "Новый Афон" to listOf("Новоафонский мужской монастырь"),
+            "Гагры" to listOf("Озеро Рица","Голубое озеро"),
+
+        ),
+        "Чили" to mapOf(
+            "Атакама" to listOf("Рука пустыни"),
+            "Сантьяго" to listOf("Сан-Альфонсо-дель-Мар"),
+            "Остров Пасхи" to listOf("Остров Пасхи")
+
+        ))
+
+    println(places)
 
 
 }
