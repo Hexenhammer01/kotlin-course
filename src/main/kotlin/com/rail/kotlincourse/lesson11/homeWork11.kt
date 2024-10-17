@@ -121,15 +121,16 @@ fun main() {
     val places: Map<String, Map<String, List<String>>> = mapOf(
         "Абхазия" to mapOf(
             "Новый Афон" to listOf("Новоафонский мужской монастырь"),
-            "Гагры" to listOf("Озеро Рица","Голубое озеро"),
+            "Гагры" to listOf("Озеро Рица", "Голубое озеро"),
 
-        ),
+            ),
         "Чили" to mapOf(
             "Атакама" to listOf("Рука пустыни"),
             "Сантьяго" to listOf("Сан-Альфонсо-дель-Мар"),
             "Остров Пасхи" to listOf("Остров Пасхи")
 
-        ))
+        )
+    )
 
     println(places)
 
