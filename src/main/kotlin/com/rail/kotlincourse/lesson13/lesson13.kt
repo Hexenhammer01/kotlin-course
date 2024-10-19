@@ -40,7 +40,7 @@ fun main() {
         listOf(4, 5, 6)
     )
 
-    val flattenList = multiplyList.flatten() //При вложенных списках метод склеевает в один общий список
+    val flattenList = multiplyList.flatten() //При вложенных списках метод склеивает в один общий список
     println(flattenList)
 
     val flattenListMap = multiplyList.flatMap { list1 ->
@@ -48,7 +48,7 @@ fun main() {
     } //
     println(flattenListMap)
 
-    val numbersString: String = numbers.joinToString(separator = " % ") { "$it * $it" } //Создает строку и склеевает
+    val numbersString: String = numbers.joinToString(separator = " % ") { "$it * $it" } //Создает строку и склеивает
     println(numbersString)
 
     val sortedNumbers = numbers.sorted() //Сортирует по порядку любые типа
