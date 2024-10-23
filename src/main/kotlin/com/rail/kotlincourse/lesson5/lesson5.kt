@@ -1,6 +1,6 @@
 package com.rail.kotlincourse.lesson5
 
-import com.rail.com.rail.kotlincourse.name
+
 
 fun main() {
 //    val sum = 10 + 5

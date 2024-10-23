@@ -53,14 +53,8 @@ fun main() {
 
     val filteredByValues = fruitsPrice.filterValues { it < 2.0 }
 
-    val filteredNotApple = fruitsPrice.filterNot { it.key == "apple" }val countExpensiveFruits = fruitsPrice.count { it.value > 1.5 }
-
-    val increasedPrices = fruitsPrice.mapValues { it.value * 1.1 }
-
-    val fruitNamesUppercase = fruitsPrice.mapKeys { it.key.uppercase() }
-
-    val fruitsList = fruitsPrice.map { "${it.key} costs ${it.value}" }
-
+    val filteredNotApple = fruitsPrice.filterNot { it.key == "apple" }
+    val countExpensiveFruits = fruitsPrice.count { it.value > 1.5 }
 
 
 
