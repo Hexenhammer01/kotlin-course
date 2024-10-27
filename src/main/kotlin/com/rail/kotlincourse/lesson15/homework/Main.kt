@@ -13,6 +13,12 @@ fun main (){
     Moon.showPhase()
 
 
+    val concert1 = Concert("Slipknot", "Arena", 457.7, 1000)
+    concert1.info()
+    concert1.freTickets()
+    concert1.info()
+
+
 
 
 
