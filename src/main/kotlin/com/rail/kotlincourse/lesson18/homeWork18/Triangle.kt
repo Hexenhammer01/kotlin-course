@@ -7,4 +7,5 @@ class Triangle(val side1: Double, val side2: Double, val side3: Double) : Shape(
     override fun area(): Double {
         return sqrt(q * (q - side1) * (q - side2)* (q - side3))
     }
+
 }
