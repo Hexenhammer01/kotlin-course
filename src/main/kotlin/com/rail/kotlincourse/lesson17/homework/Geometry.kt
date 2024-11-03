@@ -1,7 +1,5 @@
 package com.rail.kotlincourse.lesson17.homework
 
-import java.awt.Polygon
-
 open class Geometry(
     val param1: Int?,
     val param2: Int?,
