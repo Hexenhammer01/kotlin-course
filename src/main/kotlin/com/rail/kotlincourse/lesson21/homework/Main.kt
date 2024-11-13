@@ -6,13 +6,13 @@ fun <K, V> toMap(keys: List<K>, values: List<V>): Map<K, V> {
         if (i >= values.size) {
             break
         } else
-        map1[keys[i]] = values[i]
+            map1[keys[i]] = values[i]
     }
     return map1
 
 }
 
-fun <T> getMiddleElement (list: List<T>) : T? {
+fun <T> getMiddleElement(list: List<T>): T? {
     if (list.isEmpty()) {
         println("Список пустой")
     }
@@ -22,12 +22,13 @@ fun <T> getMiddleElement (list: List<T>) : T? {
 
 
 fun main() {
-    val keys = listOf("1", "2", "3",)
+    val keys = listOf("1", "2", "3")
     val values = listOf(1, 2, 3, 4)
 
     val map = toMap(keys, values)
     println(map)
 
-    val middle1 = listOf("1",2,'3',4f)
+    val middle1 = listOf("1", 2, '3', 4f)
     println(getMiddleElement(middle1))
+
 }
