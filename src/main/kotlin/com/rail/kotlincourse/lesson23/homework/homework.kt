@@ -26,12 +26,41 @@ fun safeCastToList(param: Any): Int {
     }
 }
 
-fun getStringLengthOrZero(zero:Any?): Int {
-    val z:String? = zero as? String
+fun getStringLengthOrZero(zero: Any?): Int {
+    val z: String? = zero as? String
     return z?.length
-        ?:0
+        ?: 0
 }
 
+fun DDouble(d: Any): Double {
+    return when (d) {
+        is Number -> {
+            d.toDouble() * d.toDouble()
+        }
+
+        is String -> {
+            val strD = d.toDouble()
+            strD * strD
+        }
+
+        else -> {
+            0.0
+        }
+    }
+}
+
+fun sumIntOrDoubleValues(value: List<Any>): Double {
+    var sum = 0.0
+    for (i in value) {
+        when (i) {
+            is Int -> sum = sum + i
+            is Double -> sum = sum + i
+        }
+    }
+    return sum
+}
+
+fun tryCastToListAndPrint(cast: Any):
 
 
 fun main() {
@@ -47,4 +76,9 @@ fun main() {
     println(getStringLengthOrZero("qweerqw"))
     println(getStringLengthOrZero(null))
     println(getStringLengthOrZero(456))
+
+    println(DDouble(5))
+
+    println(sumIntOrDoubleValues(listOf(1, 2.3, "qweqw", 456, true)))
+
 }
