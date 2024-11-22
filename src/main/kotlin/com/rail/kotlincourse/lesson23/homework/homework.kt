@@ -94,6 +94,6 @@ fun main() {
 
     println(sumIntOrDoubleValues(listOf(1, 2.3, "qweqw", 456, true)))
 
-    println(tryCastToListAndPrint(listOf("qwdeqw", "qwdqw", 456, 43.3f)))
+    println(tryCastToListAndPrint(listOf("qwdeqw", "qwdqw", 456, 43.3f, false)))
 
 }
