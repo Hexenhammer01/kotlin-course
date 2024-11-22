@@ -60,7 +60,20 @@ fun sumIntOrDoubleValues(value: List<Any>): Double {
     return sum
 }
 
-fun tryCastToListAndPrint(cast: Any):
+fun tryCastToListAndPrint(cast: Any) {
+    val c: List<*>? = cast as? List<*>
+    if (c != null) {
+        for (i in c) {
+            when (i) {
+                is String -> println(cast)
+                else -> println("Элемент - не строка")
+            }
+        }
+    }
+}
+//    val c:List<*>? = cast as? List<*>
+//    return cast?.toList
+//        ?:"Сообщение о ошибке"
 
 
 fun main() {
@@ -80,5 +93,7 @@ fun main() {
     println(DDouble(5))
 
     println(sumIntOrDoubleValues(listOf(1, 2.3, "qweqw", 456, true)))
+
+    println(tryCastToListAndPrint(listOf("qwdeqw", "qwdqw", 456, 43.3f)))
 
 }
