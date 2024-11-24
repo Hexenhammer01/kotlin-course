@@ -61,15 +61,10 @@ fun sumIntOrDoubleValues(value: List<Any>): Double {
 }
 
 fun tryCastToListAndPrint(cast: Any) {
-    val c: List<*>? = cast as? List<*>
-    if (c != null) {
-        for (i in c) {
-            when (i) {
-                is String -> println(cast)
-                else -> println("Элемент - не строка")
-            }
-        }
-    }
+    (cast as? List<*>)?.forEach {
+        val result = (it as? String) ?: "Элемент не является строкой $it"
+        println(result)
+    } ?: println("Не является списком")
 }
 //    val c:List<*>? = cast as? List<*>
 //    return cast?.toList
