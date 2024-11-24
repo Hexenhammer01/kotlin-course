@@ -5,42 +5,41 @@ import com.rail.kotlincourse.lesson21.homework.getMiddleElement
 
 fun main() {
 
-    NullPointerException
+    //NullPointerException
     val item1:String? = null
     item1 as Char
     println(item1)
 
-    ArrayIndexOutOfBoundsException
+    //ArrayIndexOutOfBoundsException
     val item2:Array<*> = arrayOf(1,2,3,4)
     println(item2[4])
 
-    ClassCastException
+    //ClassCastException
     val item3 = "123"
-    item4 as Int
-    println(item4)
+    item3 as Int
 
-    NumberFormatException
+    //NumberFormatException
     val item4 = "abc"
     val item5 = item4.toInt()
     println(item5)
 
-    IllegalArgumentException
+    //IllegalArgumentException
     fun checkItem6(numb: Int) {
         require(numb > 0) { "больше 0" }
     }
     println(checkItem6(-4))
 
-    IllegalStateException
+    //IllegalStateException
     val item7 = emptyList<String>()
     println(item7.first())
 
-    OutOfMemoryError
+    //OutOfMemoryError
     val item8 = mutableListOf<IntArray>()
     while (true) {
         item8.add(IntArray(100023))
     }
 
-    StackOverflowError
+    //StackOverflowError
     function1()
 
 
@@ -103,6 +102,19 @@ fun main() {
     }catch (e:StackOverflowError){
         println("StackOverflowError")
     }
+
+
+
+    //Zadanie 4
+    val mes = "Privki"
+    if (mes.length <6 ) {
+        throw CustomException("Кастомный эксепшн")
+    }else{
+        println("Нужная длинна")
+    }
+
+
+
 }
 
 fun function1() {
