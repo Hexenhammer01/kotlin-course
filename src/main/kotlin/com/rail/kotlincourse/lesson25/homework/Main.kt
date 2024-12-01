@@ -17,6 +17,19 @@ fun main() {
     println(lamdaSredneeNotType(i1))
 
     //zadanie3
+    try {
+        val i2 = listOf("aboba", "biba", "boba", "ameba")
+        println(zadanie3(i2,5))
+        println(anonimSpisok(i2,76))
+        println(lambdaSpisok(i2,1))
+        println(lambdaSpisokNotType(i2,88))
+        val i3 = emptyList<String>()
+        println(zadanie3(i3,0))
+
+    }catch (e:Throwable){
+        println("${e.message}")
+    }
+
 
 
 
