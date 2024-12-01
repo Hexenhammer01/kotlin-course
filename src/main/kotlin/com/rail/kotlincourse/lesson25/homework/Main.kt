@@ -17,18 +17,39 @@ fun main() {
     println(lamdaSredneeNotType(i1))
 
     //zadanie3
+    val i2 = listOf("aboba", "biba", "boba", "ameba")
     try {
-        val i2 = listOf("aboba", "biba", "boba", "ameba")
         println(zadanie3(i2,5))
         println(anonimSpisok(i2,76))
         println(lambdaSpisok(i2,1))
-        println(lambdaSpisokNotType(i2,88))
         val i3 = emptyList<String>()
         println(zadanie3(i3,0))
+        println(lamdaSpisokNotType(i2,65))
 
     }catch (e:Throwable){
         println("${e.message}")
     }
+
+    //zadanie4
+    val i3: Any = 1234567890
+    val i4: Any = "9876543210"
+    val i5:Any = emptyArray<String>()
+    println(zadanie4(i3))
+    println(zadanie4(i3))
+    println(anonimSumma(i3))
+    println(anonimSumma(i4))
+    println(lambdaSumma(i3))
+    println(lambdaSumma(i4))
+    println(lambdaNotTypeSumma(i4))
+    try {
+        println(zadanie4(i5))
+    }catch (e:Throwable){
+        println("${e.message}")
+    }
+
+
+
+
 
 
 

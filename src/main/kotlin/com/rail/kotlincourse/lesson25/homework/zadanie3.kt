@@ -34,7 +34,7 @@ val lambdaSpisok: (q: List<String>, w: Int) -> List<String> = { q, w ->
     result
 }
 
-val lamdaSpisokNotType = {q: List<String>, w: Int ->
+val lamdaSpisokNotType = { q: List<String>, w: Int ->
     require(q.isNotEmpty()) { "пустой список" }
     val result = mutableListOf<String>()
     for (i in q) {
