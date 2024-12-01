@@ -47,6 +47,14 @@ fun main() {
         println("${e.message}")
     }
 
+    //zadanie5
+    val i6 = listOf(5,6,7,6,5,4,2,1)
+    println(zadanie5(i6))
+    println(anonimToSet(i6))
+    println(lambdaToSet(i6))
+    println(lambdaNotTypeSet(i6))
+
+
 
 
 
