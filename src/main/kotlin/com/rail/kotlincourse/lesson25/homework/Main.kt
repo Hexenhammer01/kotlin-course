@@ -54,6 +54,19 @@ fun main() {
     println(lambdaToSet(i6))
     println(lambdaNotTypeSet(i6))
 
+    //zadanie6
+    val i7 = mapOf("1" to 1, "2" to 2, "3" to 3, "4" to 4)
+    try {
+    println(zadanie6(i7,4))
+    println(anonimMap(i7,32))
+    println(lambdaMap(i7,33))
+    println(lambdaNotTypeMap(i7,11))
+
+    }catch (e:Throwable){
+        println("${e.message}")
+    }
+
+
 
 
 
