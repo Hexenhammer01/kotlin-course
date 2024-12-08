@@ -31,7 +31,7 @@ fun main() {
     println("${zadanie2.department}")
 
     //zadanie 3
-    val zadanie3 = com.rail.kotlincourse.lesson27.homework.Person("Красивый Абоба", 69).apply {
+    val zadanie3 = Person("Красивый Абоба", 69).apply {
         email = "pretty.Aboba@FlipFlap.meaw"
     }
     println("zadanie3")
@@ -43,13 +43,14 @@ fun main() {
     }
     val s = with(zadanie4) {
         Employee(name = this.name, age = this.age, "бо").apply {
-            email = this.email
             department = "драчун"
+            email = this@with.email
         }
     }
     println(zadanie4.also { prettyEmployee(s) })
 
     //zadanie 5
+
 
 
 }
