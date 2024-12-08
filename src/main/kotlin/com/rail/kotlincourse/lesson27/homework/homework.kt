@@ -3,8 +3,9 @@ package com.rail.kotlincourse.lesson27.homework
 import com.rail.kotlincourse.lesson25.homework.lambdaNotType
 
 
-fun timeTracker(function: () -> List<Int>): Long {
+fun timeTracker(function: () -> Any): Long {
     val nachalo = System.currentTimeMillis()
+    function()
     val konez = System.currentTimeMillis()
     val skolko = konez - nachalo
     return skolko
@@ -15,6 +16,7 @@ fun main() {
         val list = List(10000000) { (0..10000).random() }
         list.sorted()
     }
+    println("Задание 1")
     println(timeTracker(myFunction))
 
     //zadanie 2
@@ -63,10 +65,10 @@ fun prettyInfo(person: Person) {
 }
 
 fun prettyEmployee(s: Employee) {
-    println("Employee Details:")
-    println("Name: ${s.name}")
-    println("Age: ${s.age}")
-    println("Position: ${s.position}")
+    println("Employee Контакты:")
+    println("Имя: ${s.name}")
+    println("Лет: ${s.age}")
+    println("Позиция: ${s.position}")
     println("Email: ${s.email}")
-    println("Department: ${s.department}")
+    println("Департамент: ${s.department}")
 }
