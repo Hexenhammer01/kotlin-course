@@ -49,19 +49,37 @@ fun main() {
             email = this@with.email
         }
     }
+    println("zadanie4")
     println(zadanie4.also { prettyEmployee(s) })
 
     //zadanie 5
+    val zadanie5 = Person("Абиба", 77).run {
+        Employee(name, age, "Балбес").apply {
+            department = "2 Балбеса"
+            email = "firstBalbes@gmail.com"
+        }
 
+    }
+    println(prettyEmployee(zadanie5))
 
+    //zadanie 6
+    val zadanie6 = Person("Биба", 99)
+    fun zadanie61(z: Person?): Employee? = z?.let {
+        Employee(it.name, it.age, "Балбес").apply {
+            email = "secondBalbes@gmail.com"
+            department = "2 балбеса"
+        }
+    }
+//    println(zadanie61.also { prettyEmployee(s) })
 
 }
 
-fun prettyInfo(person: Person) {
+
+fun prettyInfo(r: Person) {
     println("Pretty Info:")
-    println("Имечко: ${person.name}")
-    println("Годиков: ${person.age}")
-    println("Имейлик: ${person.email}")
+    println("Имечко: ${r.name}")
+    println("Годиков: ${r.age}")
+    println("Имейлик: ${r.email}")
 }
 
 fun prettyEmployee(s: Employee) {
