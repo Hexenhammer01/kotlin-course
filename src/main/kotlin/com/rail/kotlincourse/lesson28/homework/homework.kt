@@ -46,7 +46,7 @@ fun main() {
     val deleteDer = File("workspace/task4")
     deleteDer.deleteRecursively()
 
-   // Задача 5
+    // Задача 5
     val configFile = File("workspace/task5/config/config.txt")
     configFile.parentFile.mkdirs()
     configFile.createNewFile()
@@ -58,15 +58,28 @@ fun main() {
     }
 
     //Задача 6
+    println("666666")
+    val workspaceDir = File("workspace")
+
+
+    val directories = workspaceDir.walkTopDown().filter { it.isDirectory }
+    val files = workspaceDir.walkTopDown().filter { it.isFile }
+
+
+    println("files")
+    files.forEach { (println(it.parentFile)) }
+    println("direct")
+    directories.forEach { (println(it.parentFile)) }
+    println("end")
 
 
     // Задача 7
     val workspace = File("workspace/task9/docs")
     workspace.mkdirs()
     val readme = File("workspace/task9/docs/readme.md")
-    if(readme.exists()){
+    if (readme.exists()) {
         println("file exist")
-    }else{
+    } else {
         readme.createNewFile()
         readme.writeText("This is a README file.")
     }
