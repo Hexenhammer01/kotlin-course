@@ -7,7 +7,7 @@ fun main() {
 
     val file1 = File("workspace/task1/example.txt")
     file1.parentFile.mkdirs()
-    file1.mkdirs()
+    file1.createNewFile()
     file1.writeText("Hello, Kotlin!")
 
     if (file1.exists()) {
@@ -32,7 +32,7 @@ fun main() {
     subDir2.mkdirs()
 
     if (subDir1.isDirectory && subDir2.isDirectory) {
-        println(subDir1)
+        println(dir3.listFiles())
         println(subDir2)
     }
 
@@ -42,7 +42,9 @@ fun main() {
     tempDerFile.parentFile.mkdirs()
     val tempFile = File("workspace/task4/temp/file.txt")
     val tempFile1 = File("workspace/task4/temp/file1.txt")
-    tempFile1.createNewFile() && tempFile.createNewFile() && tempDerFile.createNewFile()
+    tempFile1.createNewFile()
+    tempFile.createNewFile()
+    tempDerFile.createNewFile()
     val deleteDer = File("workspace/task4")
     deleteDer.deleteRecursively()
 
@@ -60,10 +62,15 @@ fun main() {
     //Задача 6
     println("666666")
     val workspaceDir = File("workspace")
+    val result = workspaceDir.walkTopDown().groupBy {
+        if(it.isDirectory)"directory" else "file"
+    }
+    println(result)
 
 
     val directories = workspaceDir.walkTopDown().filter { it.isDirectory }
     val files = workspaceDir.walkTopDown().filter { it.isFile }
+
 
 
     println("files")
