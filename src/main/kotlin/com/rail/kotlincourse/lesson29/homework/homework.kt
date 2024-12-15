@@ -38,12 +38,27 @@ fun main() {
     formatAnyDateByIso(offsetDateTime)
     formatAnyDateByIso(localDate)
     formatAnyDateByIso(localTime)
-//    formatAnyDateByIso(offsetTime)
+    formatAnyDateByIso(offsetTime)
 
 
     } catch (e: Throwable) {
         println("$e")
     }
+
+    //5
+    val localDateTime5 = LocalDateTime.of(2023, 10, 12, 10, 45, 30)
+    val zonedDateTime5 = ZonedDateTime.of(localDateTime, ZoneId.of("UTC"))
+    val offsetDateTime5 = OffsetDateTime.of(localDateTime, ZoneOffset.ofHours(-5))
+    val localDate5 = LocalDate.of(2023, 10, 12)
+    val localTime5 = LocalTime.of(10, 45, 30)
+    val offsetTime5 = OffsetTime.of(localTime, ZoneOffset.ofHours(3))
+println("5")
+    formatAnyDate(localDateTime5)
+    formatAnyDate(zonedDateTime5)
+    formatAnyDate(offsetDateTime5)
+    formatAnyDate(localDate5)
+    formatAnyDate(localTime5)
+    formatAnyDate(offsetTime5)
 }
 
 
