@@ -75,7 +75,7 @@ fun main(){
     println(poslednidenvesny.plus(ruchnPer))
     val calen = ZonedDateTime.of(2024,12,16,10,0,0,0,ZoneId.of("Europe/Moscow"))
     println(calen)
-    println(raznicaDat.m)
+    println(raznicaDat)
 
 
 }
