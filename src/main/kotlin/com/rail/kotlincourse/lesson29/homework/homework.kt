@@ -13,7 +13,7 @@ fun main() {
 
     //3
     val tekushaaData = LocalDate.now()
-    val letPeriod = Period.between(dR,tekushaaData)
+    val letPeriod = Period.between(dR, tekushaaData)
     println(letPeriod.years)
 
     //4
@@ -25,20 +25,20 @@ fun main() {
     val offsetTime = OffsetTime.of(localTime, ZoneOffset.UTC)
 
     try {
-    formatAnyDate(localDateTime)
-    formatAnyDate(zonedDateTime)
-    formatAnyDate(offsetDateTime)
-    formatAnyDate(localDate)
-    formatAnyDate(localTime)
-    formatAnyDate(offsetTime)
+        formatAnyDate(localDateTime)
+        formatAnyDate(zonedDateTime)
+        formatAnyDate(offsetDateTime)
+        formatAnyDate(localDate)
+        formatAnyDate(localTime)
+        formatAnyDate(offsetTime)
         println("2")
 
-    formatAnyDateByIso(localDateTime)
-    formatAnyDateByIso(zonedDateTime)
-    formatAnyDateByIso(offsetDateTime)
-    formatAnyDateByIso(localDate)
-    formatAnyDateByIso(localTime)
-    formatAnyDateByIso(offsetTime)
+        formatAnyDateByIso(localDateTime)
+        formatAnyDateByIso(zonedDateTime)
+        formatAnyDateByIso(offsetDateTime)
+        formatAnyDateByIso(localDate)
+        formatAnyDateByIso(localTime)
+        formatAnyDateByIso(offsetTime)
 
 
     } catch (e: Throwable) {
@@ -52,7 +52,7 @@ fun main() {
     val localDate5 = LocalDate.of(2023, 10, 12)
     val localTime5 = LocalTime.of(10, 45, 30)
     val offsetTime5 = OffsetTime.of(localTime, ZoneOffset.ofHours(3))
-println("5")
+    println("5")
     formatAnyDate(localDateTime5)
     formatAnyDate(zonedDateTime5)
     formatAnyDate(offsetDateTime5)
