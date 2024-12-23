@@ -1,5 +1,7 @@
 package com.rail.kotlincourse.lesson31.homework
 
+import kotlin.math.min
+
 // Пример имплементации интерфейса с блоком инициализации класса
 
 class CerealStorageImpl(
@@ -17,8 +19,16 @@ class CerealStorageImpl(
     }
 
     private val storage = mutableMapOf<Cereal, Float>()
+
     override fun addCereal(cereal: Cereal, amount: Float): Float {
-        TODO("Not yet implemented")
+        require(amount >= 0) {
+            "Количество крупы не может быть отрицательным"
+        }
+        checkStorageCapacity(cereal)
+        val currentAmount = storage.getOrDefault(cereal, 0f)
+        val amountForAdding = min(getSpace(cereal), amount)
+        storage[cereal] = currentAmount + amountForAdding
+        return amount - amountForAdding
     }
 
     override fun getCereal(cereal: Cereal, amount: Float): Float {
@@ -30,16 +40,21 @@ class CerealStorageImpl(
     }
 
     override fun getAmount(cereal: Cereal): Float {
-        TODO("Not yet implemented")
+        return storage.getOrDefault(cereal, 0f)
     }
 
     override fun getSpace(cereal: Cereal): Float {
-        TODO("Not yet implemented")
+        return containerCapacity - getAmount(cereal)
     }
 
     override fun toString(): String {
         TODO("Not yet implemented")
     }
 
-    // дальше будет переопределением методов интерфейса
+    private fun checkStorageCapacity(cereal: Cereal) {
+        if (storage.contains(cereal)) return
+        check(storageCapacity >= (storage.size + 1) * containerCapacity) {
+            "Недостаточно места в хранилище для нового контейнера"
+        }
+    }
 }
