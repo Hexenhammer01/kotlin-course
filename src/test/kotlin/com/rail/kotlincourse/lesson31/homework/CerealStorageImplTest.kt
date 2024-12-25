@@ -1,7 +1,7 @@
 package com.rail.kotlincourse.lesson31.homework
 
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.*
+
 import org.junit.jupiter.api.Test
 
 class CerealStorageImplTest {
@@ -17,15 +17,19 @@ class CerealStorageImplTest {
 
     @Test
     fun `should throw if storageCapacity is lower than containerCapacity`() {
-        Assertions.assertThrows(IllegalArgumentException::class.java) {
-            CerealStorageImpl(10f, 9.9f)
-        }
+        Assertions.assertThrows(IllegalArgumentException::class.java,{ CerealStorageImpl(10f, 9.9f)})
     }
 
     @Test
     fun addCereal() = with(storage) {
         addCereal(Cereal.RICE, 2.2f)
         Assertions.assertEquals(2.2f, getAmount(Cereal.RICE))
+    }
+    @Test
+    fun getCerealTypes1() : Unit = with(storage){
+        Assertions.assertTrue(getCerealTypes().isEmpty() )
+        addCereal(Cereal.RICE, 2.2f)
+        Assertions.assertEquals(listOf(Cereal.RICE),getCerealTypes())
     }
 
     @Test

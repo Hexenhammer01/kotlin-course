@@ -64,7 +64,7 @@ fun main() {
         trudStat = true,
         bornDate = "01-01-1956",
         characterTypes = CharacterTypes.CTO,
-        podch = listOf(Teamlead,Backend,Frontend,Qa,Designer)
+        podch = listOf(Teamlead)
     )
 
     val gson: Gson = GsonBuilder().setPrettyPrinting().create()

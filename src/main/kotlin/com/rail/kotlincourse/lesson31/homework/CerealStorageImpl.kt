@@ -20,6 +20,8 @@ class CerealStorageImpl(
 
     private val storage = mutableMapOf<Cereal, Float>()
 
+    fun getCerealTypes() = storage.keys.toList()
+
     override fun addCereal(cereal: Cereal, amount: Float): Float {
         require(amount >= 0) {
             "Количество крупы не может быть отрицательным"
