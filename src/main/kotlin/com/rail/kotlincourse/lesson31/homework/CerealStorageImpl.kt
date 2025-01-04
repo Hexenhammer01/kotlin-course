@@ -33,12 +33,28 @@ class CerealStorageImpl(
         return amount - amountForAdding
     }
 
+    /**
+     * @param cereal крупа, которую нужно взять из контейнера
+     * @param amount количество крупы
+     * @return количество полученной крупы или остаток, если было меньше
+     * @throws IllegalArgumentException если передано отрицательное значение
+     */
     override fun getCereal(cereal: Cereal, amount: Float): Float {
-        TODO("Not yet implemented")
+        require(amount >= 0) {
+           "Количество крупы не может быть отрицательным"
+        }
+        val currentAmount = storage.getOrDefault(cereal, 0f)
+        val amountToDispense = min(currentAmount, amount)
+        storage[cereal] = currentAmount - amountToDispense
+        return amountToDispense
+
+
     }
 
     override fun removeContainer(cereal: Cereal): Boolean {
-        TODO("Not yet implemented")
+        val emptyContayner = storage.values.isEmpty()
+
+
     }
 
     override fun getAmount(cereal: Cereal): Float {
