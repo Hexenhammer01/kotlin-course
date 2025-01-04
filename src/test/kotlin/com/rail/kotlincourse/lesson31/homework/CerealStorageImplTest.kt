@@ -3,7 +3,6 @@ package com.rail.kotlincourse.lesson31.homework
 import org.junit.jupiter.api.Assertions
 
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 
 class CerealStorageImplTest {
 
@@ -80,26 +79,38 @@ class CerealStorageImplTest {
     @Test
     fun getCerealToCanDispense(): Unit = with(storage) {
         addCereal(Cereal.RICE, 1.7f)
-        Assertions.assertEquals(1.7f,getCereal(Cereal.RICE, 3.7f))
+        Assertions.assertEquals(1.7f, getCereal(Cereal.RICE, 3.7f))
     }
 
+    //корректно работает отдача
     @Test
-    fun getCereal(): Unit = with(storage) {
+    fun getCereal(rice: Cereal, fl: Float): Unit = with(storage) {
         addCereal(Cereal.RICE, 6.7f)
-        Assertions.assertEquals(3.7f,getCereal(Cereal.RICE, 3.7f))
+        Assertions.assertEquals(3.7f, getCereal(Cereal.RICE, 3.7f))
     }
 
+    //нечего выдавать когда ничего нет
     @Test
-    fun `should not dispense if nothing is available`() = with(storage){
+    fun `should not dispense if nothing is available`() = with(storage) {
         addCereal(Cereal.RICE, 10.0f)
         getCereal(Cereal.RICE, 10.0f)
         val amountDispensed = getCereal(Cereal.RICE, 1.0f)
         Assertions.assertEquals(0.0f, amountDispensed)
     }
+        //выбрасывает ошибку когда значение отрицательное
+    @Test
+    fun `should throw IllegalArgumentException if amount is negative`(): Unit = with(storage) {
+        Assertions.assertThrows(IllegalArgumentException::class.java) {
+            getCereal(Cereal.RICE, -5.0f)
+        }
+    }
 
     @Test
-    fun
-
+    fun `should return available amount if requested more than available`():Unit= with(storage) {
+        addCereal(Cereal.RICE, 10.0f)
+        val amountDispensed = getCereal(Cereal.RICE, 15.0f)
+        Assertions.assertEquals(10.0f, amountDispensed)
+    }
 
 
 

@@ -53,8 +53,7 @@ class CerealStorageImpl(
 
     override fun removeContainer(cereal: Cereal): Boolean {
         val emptyContayner = storage.values.isEmpty()
-
-
+        return emptyContayner
     }
 
     override fun getAmount(cereal: Cereal): Float {
