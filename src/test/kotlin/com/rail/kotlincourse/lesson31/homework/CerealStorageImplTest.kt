@@ -76,4 +76,31 @@ class CerealStorageImplTest {
             addCereal(Cereal.BUCKWHEAT, 0.1f)
         }
     }
+
+    @Test
+    fun getCerealToCanDispense(): Unit = with(storage) {
+        addCereal(Cereal.RICE, 1.7f)
+        Assertions.assertEquals(1.7f,getCereal(Cereal.RICE, 3.7f))
+    }
+
+    @Test
+    fun getCereal(): Unit = with(storage) {
+        addCereal(Cereal.RICE, 6.7f)
+        Assertions.assertEquals(3.7f,getCereal(Cereal.RICE, 3.7f))
+    }
+
+    @Test
+    fun `should not dispense if nothing is available`() = with(storage){
+        addCereal(Cereal.RICE, 10.0f)
+        getCereal(Cereal.RICE, 10.0f)
+        val amountDispensed = getCereal(Cereal.RICE, 1.0f)
+        Assertions.assertEquals(0.0f, amountDispensed)
+    }
+
+    @Test
+    fun
+
+
+
+
 }
