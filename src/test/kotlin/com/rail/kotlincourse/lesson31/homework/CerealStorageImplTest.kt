@@ -125,9 +125,9 @@ class CerealStorageImplTest {
     }
 
     @Test
-    fun `remove empty container`() {
-        storage.addCereal(Cereal.PEAS, 14f)
-        storage.getCereal(Cereal.PEAS, 14f)
+    fun `remove empty container`()= with(storage) {
+        addCereal(Cereal.PEAS, 14f)
+        getCereal(Cereal.PEAS, 14f)
         assertTrue(storage.removeContainer(Cereal.PEAS))
     }
 
