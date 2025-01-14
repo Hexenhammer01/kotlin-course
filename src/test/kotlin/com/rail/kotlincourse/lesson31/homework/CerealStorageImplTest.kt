@@ -9,6 +9,7 @@ class CerealStorageImplTest {
 
     private val storage = CerealStorageImpl(10f, 20f)
 
+    //Если отрицательное значение
     @Test
     fun `should throw if containerCapacity is negative`() {
         Assertions.assertThrows(IllegalArgumentException::class.java) {
@@ -16,11 +17,13 @@ class CerealStorageImplTest {
         }
     }
 
+    //Если емкость хранилища меньше контейнера
     @Test
     fun `should throw if storageCapacity is lower than containerCapacity`() {
         Assertions.assertThrows(IllegalArgumentException::class.java, { CerealStorageImpl(10f, 9.9f) })
     }
 
+    //Добавление зерна
     @Test
     fun addCereal() = with(storage) {
         addCereal(Cereal.RICE, 2.2f)
@@ -29,11 +32,12 @@ class CerealStorageImplTest {
 
     @Test
     fun getCerealTypes1(): Unit = with(storage) {
-        Assertions.assertTrue(getCerealTypes().isEmpty())
+        assertTrue(getCerealTypes().isEmpty())
         addCereal(Cereal.RICE, 2.2f)
         Assertions.assertEquals(listOf(Cereal.RICE), getCerealTypes())
     }
 
+    //Добавление зерна несколько раз
     @Test
     fun addExtraCereal() = with(storage) {
         addCereal(Cereal.RICE, 2.2f)
@@ -41,6 +45,7 @@ class CerealStorageImplTest {
         Assertions.assertEquals(3.5f, getAmount(Cereal.RICE))
     }
 
+    //Добавление разного зерна
     @Test
     fun addMultipleCereal() = with(storage) {
         addCereal(Cereal.RICE, 1.1f)
@@ -51,16 +56,19 @@ class CerealStorageImplTest {
         )
     }
 
+    //Возвращает 0 если контейнер не заполнен
     @Test
     fun `should return 0 if container not full`() = with(storage) {
         Assertions.assertEquals(0f, addCereal(Cereal.BUCKWHEAT, 9.9f))
     }
 
+    //Возвращает остаток, если добавленная крупа больше, чем пустое пространство контейнера
     @Test
     fun `should return rest if added cereal is biggest than container empty space`() = with(storage) {
         Assertions.assertEquals(0.1f, addCereal(Cereal.PEAS, 10.1f), 0.01f)
     }
 
+    //Если количество крупы отрицательно
     @Test
     fun `should throw if cereal amount is negative`(): Unit = with(storage) {
         Assertions.assertThrows(IllegalArgumentException::class.java) {
@@ -125,12 +133,11 @@ class CerealStorageImplTest {
     }
 
     @Test
-    fun `remove empty container`()= with(storage) {
+    fun `remove empty container`() = with(storage)  {
         addCereal(Cereal.PEAS, 14f)
         getCereal(Cereal.PEAS, 14f)
-        assertTrue(storage.removeContainer(Cereal.PEAS))
+        assertTrue(removeContainer(Cereal.PEAS))
     }
-
 
 
 }
