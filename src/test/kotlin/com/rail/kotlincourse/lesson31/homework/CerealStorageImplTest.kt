@@ -1,6 +1,7 @@
 package com.rail.kotlincourse.lesson31.homework
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertTrue
 
 import org.junit.jupiter.api.Test
 
@@ -84,7 +85,7 @@ class CerealStorageImplTest {
 
     //корректно работает отдача
     @Test
-    fun getCereal(rice: Cereal, fl: Float): Unit = with(storage) {
+    fun getCereal(): Unit = with(storage) {
         addCereal(Cereal.RICE, 6.7f)
         Assertions.assertEquals(3.7f, getCereal(Cereal.RICE, 3.7f))
     }
@@ -97,7 +98,8 @@ class CerealStorageImplTest {
         val amountDispensed = getCereal(Cereal.RICE, 1.0f)
         Assertions.assertEquals(0.0f, amountDispensed)
     }
-        //выбрасывает ошибку когда значение отрицательное
+
+    //выбрасывает ошибку когда значение отрицательное
     @Test
     fun `should throw IllegalArgumentException if amount is negative`(): Unit = with(storage) {
         Assertions.assertThrows(IllegalArgumentException::class.java) {
@@ -106,10 +108,27 @@ class CerealStorageImplTest {
     }
 
     @Test
-    fun `should return available amount if requested more than available`():Unit= with(storage) {
+    fun `should return available amount if requested more than available`() = with(storage) {
         addCereal(Cereal.RICE, 10.0f)
         val amountDispensed = getCereal(Cereal.RICE, 15.0f)
         Assertions.assertEquals(10.0f, amountDispensed)
+    }
+
+    @Test
+    fun `should return available amount if requested more than available1`() = with(storage) {
+        addCereal(Cereal.RICE, 10.0f)
+        addCereal(Cereal.PEAS, 1.7f)
+        val amountDispensedRice = getCereal(Cereal.RICE, 15.0f)
+        val amountDispensedPeas = getCereal(Cereal.PEAS, 3.0f)
+        Assertions.assertEquals(10.0f, amountDispensedRice)
+        Assertions.assertEquals(1.7f, amountDispensedPeas)
+    }
+
+    @Test
+    fun `remove empty container`() {
+        storage.addCereal(Cereal.PEAS, 14f)
+        storage.getCereal(Cereal.PEAS, 14f)
+        assertTrue(storage.removeContainer(Cereal.PEAS))
     }
 
 

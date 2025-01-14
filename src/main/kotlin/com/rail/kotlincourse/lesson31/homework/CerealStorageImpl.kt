@@ -41,7 +41,7 @@ class CerealStorageImpl(
      */
     override fun getCereal(cereal: Cereal, amount: Float): Float {
         require(amount >= 0) {
-           "Количество крупы не может быть отрицательным"
+            "Количество крупы не может быть отрицательным"
         }
         val currentAmount = storage.getOrDefault(cereal, 0f)
         val amountToDispense = min(currentAmount, amount)
@@ -52,8 +52,13 @@ class CerealStorageImpl(
     }
 
     override fun removeContainer(cereal: Cereal): Boolean {
-        val emptyContayner = storage.values.isEmpty()
-        return emptyContayner
+        val currentAmount = storage.getOrDefault(cereal, 0f)
+        return if (currentAmount != 0f) {
+            false
+        } else {
+            storage.remove(cereal)
+            true
+        }
     }
 
     override fun getAmount(cereal: Cereal): Float {
