@@ -4,10 +4,10 @@ import kotlin.math.min
 
 // Пример имплементации интерфейса с блоком инициализации класса
 
-class CerealStorageImpl(
+class CerealStorage1Impl1(
     override val containerCapacity: Float,
     override val storageCapacity: Float
-) : CerealStorage {
+) : CerealStorage1 {
     // Блок инициализации класса. Выполняется сразу при создании объекта
     init {
         require(containerCapacity >= 0) {
@@ -18,63 +18,57 @@ class CerealStorageImpl(
         }
     }
 
-    private val storage = mutableMapOf<Cereal, Float>()
+    private val storage = mutableMapOf<Cereal1, Float>()
 
     fun getCerealTypes() = storage.keys.toList()
 
-    override fun addCereal(cereal: Cereal, amount: Float): Float {
+    override fun addCereal(cereal1: Cereal1, amount: Float): Float {
         require(amount >= 0) {
             "Количество крупы не может быть отрицательным"
         }
-        checkStorageCapacity(cereal)
-        val currentAmount = storage.getOrDefault(cereal, 0f)
-        val amountForAdding = min(getSpace(cereal), amount)
-        storage[cereal] = currentAmount + amountForAdding
+        checkStorageCapacity(cereal1)
+        val currentAmount = storage.getOrDefault(cereal1, 0f)
+        val amountForAdding = min(getSpace(cereal1), amount)
+        storage[cereal1] = currentAmount + amountForAdding
         return amount - amountForAdding
     }
 
-    /**
-     * @param cereal крупа, которую нужно взять из контейнера
-     * @param amount количество крупы
-     * @return количество полученной крупы или остаток, если было меньше
-     * @throws IllegalArgumentException если передано отрицательное значение
-     */
-    override fun getCereal(cereal: Cereal, amount: Float): Float {
+    override fun getCereal(cereal1: Cereal1, amount: Float): Float {
         require(amount >= 0) {
             "Количество крупы не может быть отрицательным"
         }
-        val currentAmount = storage.getOrDefault(cereal, 0f)
+        val currentAmount = storage.getOrDefault(cereal1, 0f)
         val amountToDispense = min(currentAmount, amount)
-        storage[cereal] = currentAmount - amountToDispense
+        storage[cereal1] = currentAmount - amountToDispense
         return amountToDispense
 
 
     }
 
-    override fun removeContainer(cereal: Cereal): Boolean {
-        val currentAmount = storage.getOrDefault(cereal, 0f)
+    override fun removeContainer(cereal1: Cereal1): Boolean {
+        val currentAmount = storage.getOrDefault(cereal1, 0f)
         return if (currentAmount != 0f) {
             false
         } else {
-            storage.remove(cereal)
+            storage.remove(cereal1)
             true
         }
     }
 
-    override fun getAmount(cereal: Cereal): Float {
-        return storage.getOrDefault(cereal, 0f)
+    override fun getAmount(cereal1: Cereal1): Float {
+        return storage.getOrDefault(cereal1, 0f)
     }
 
-    override fun getSpace(cereal: Cereal): Float {
-        return containerCapacity - getAmount(cereal)
+    override fun getSpace(cereal1: Cereal1): Float {
+        return containerCapacity - getAmount(cereal1)
     }
 
     override fun toString(): String {
-        TODO("Not yet implemented")
+        return storage.entries.joinToString { "${it.key.local}: ${it.value}" }
     }
 
-    private fun checkStorageCapacity(cereal: Cereal) {
-        if (storage.contains(cereal)) return
+    private fun checkStorageCapacity(cereal1: Cereal1) {
+        if (storage.contains(cereal1)) return
         check(storageCapacity >= (storage.size + 1) * containerCapacity) {
             "Недостаточно места в хранилище для нового контейнера"
         }

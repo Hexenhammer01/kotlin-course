@@ -1,4 +1,4 @@
-package com.rail.kotlincourse.lesson31.homework
+package com.rail.kotlincourse.forSecondStep
 
 interface CerealStorage {
 
