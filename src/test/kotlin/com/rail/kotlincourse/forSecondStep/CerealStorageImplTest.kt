@@ -38,7 +38,7 @@ class CerealStorageImplTest {
     fun addExtraCereal() = with(storage) {
         addCereal(Cereal.RICE, 2.2f)
         addCereal(Cereal.RICE, 1.3f)
-        Assertions.assertEquals(3.5f, getAmount(Cereal.RICE))
+        assertEquals(3.5f, getAmount(Cereal.RICE))
     }
 
     //Добавление разного зерна
@@ -129,8 +129,8 @@ class CerealStorageImplTest {
         val amountDispensedRice = getCereal(Cereal.RICE, 15.0f)
         val amountDispensedPeas = getCereal(Cereal.PEAS, 3.0f)
         assertAll(
-            {assertEquals(10.0f, amountDispensedRice)},
-            {assertEquals(1.7f, amountDispensedPeas)}
+            { assertEquals(10.0f, amountDispensedRice) },
+            { assertEquals(1.7f, amountDispensedPeas) }
         )
     }
 
