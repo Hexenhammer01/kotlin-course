@@ -20,7 +20,12 @@ class CerealStorageImpl(
 
     private val storage = mutableMapOf<Cereal, Float>()
 
-    fun getCerealTypes() = storage.keys.toList()
+    private fun checkStorageCapacity(cereal: Cereal) {
+        if (storage.contains(cereal)) return
+        check(storageCapacity >= (storage.size + 1) * containerCapacity) {
+            "Недостаточно места в хранилище для нового контейнера"
+        }
+    }
 
     override fun addCereal(cereal: Cereal, amount: Float): Float {
         require(amount >= 0) {
@@ -67,10 +72,4 @@ class CerealStorageImpl(
         return storage.entries.joinToString { "${it.key.local}: ${it.value}" }
     }
 
-    private fun checkStorageCapacity(cereal: Cereal) {
-        if (storage.contains(cereal)) return
-        check(storageCapacity >= (storage.size + 1) * containerCapacity) {
-            "Недостаточно места в хранилище для нового контейнера"
-        }
-    }
 }

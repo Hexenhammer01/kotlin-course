@@ -1,5 +1,6 @@
 package com.rail.kotlincourse.forSecondStep
 
+
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.*
 
@@ -31,12 +32,6 @@ class CerealStorageImplTest {
         assertEquals(2.2f, getAmount(Cereal.RICE))
     }
 
-    @Test
-    fun getCerealTypes1(): Unit = with(storage) {
-        assertTrue(getCerealTypes().isEmpty())
-        addCereal(Cereal.RICE, 2.2f)
-        assertEquals(listOf(Cereal.RICE), getCerealTypes())
-    }
 
     //Добавление зерна несколько раз
     @Test
